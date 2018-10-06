@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Паспорт Брянской области</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+    <h1 class="text-center">Паспорт Брянской области</h1>
+
+    <div class="row">
+  <div class="col-sm-4">
+      <h3>Краткая информация </h3>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">Входит в:</th>
+          <td> Центральный федеральный округ</td>
+        </tr>
+        <tr>
+          <th scope="row">Административный центр:</th>
+          <td>Брянск</td>
+        </tr>
+        <tr>
+          <th scope="row">Губернатор:</th>
+          <td>Александр Богомаз</td>
+        </tr>
+        <tr>
+          <th scope="row">ВВП:</th>
+          <td>285,8 млрд руб. </td>
+        </tr>
+        <tr>
+          <th scope="row">ВВП на душу населения:</th>
+          <td>233,7 тыс. руб.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-8">
+    <h3>Статистика </h3>
+      <canvas id="myChart" height="100"></canvas>
+      <canvas id="myChart1" height="100"></canvas>
+  </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["2014", "2015", "2016"],
+            datasets: [{
+                label: "ВАЛОВОЙ (внутренний) РЕГИОНАЛЬНЫЙ  ПРОДУКТ ",
+                borderColor: 'rgb(255, 99, 132)',
+                data: [219, 243, 269],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+
+    var ctx1 = document.getElementById('myChart1').getContext('2d');
+    var chart1 = new Chart(ctx1, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["2014", "2015", "2016"],
+            datasets: [{
+                label: "ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА ВРП",
+                borderColor: 'rgb(0, 99, 132)',
+                data: [101, 103, 101],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+</script>
+</body>
+</html>
