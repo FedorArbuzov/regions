@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Паспорт Брянской области</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+    <h1 class="text-center">Паспорт Брянской области</h1>
+
+    <div class="row">
+  <div class="col-sm-4">
+      <h3>Краткая информация </h3>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">Входит в:</th>
+          <td> Центральный федеральный округ</td>
+        </tr>
+        <tr>
+          <th scope="row">Административный центр:</th>
+          <td>Брянск</td>
+        </tr>
+        <tr>
+          <th scope="row">Губернатор:</th>
+          <td>Александр Богомаз</td>
+        </tr>
+        <tr>
+          <th scope="row">ВВП:</th>
+          <td>285,8 млрд руб. </td>
+        </tr>
+        <tr>
+          <th scope="row">ВВП на душу населения:</th>
+          <td>233,7 тыс. руб.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-8">
+    <h3>Статистика </h3>
+      <canvas id="myChart" height="100"></canvas>
+      <canvas id="myChart1" height="100"></canvas>
+  </div>
+    </div>
+    <div class="row">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:40%;">Параметр</th>
+    <th style="width:20%;">2014 г.</th>
+    <th style="width:20%;">2015 г.</th>
+    <th style="width:20%;">2016 г.</th>
+  </tr>
+        <tr>
+            <td>ВАЛОВОЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ</td>
+            <td>219.5028</td>
+            <td>243.026</td>
+            <td>269.93330000000003</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА ВРП </td>
+            <td>101</td>
+            <td>103.5</td>
+            <td>101.5</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ПРОМЫШЛЕННОГО ПРОИЗВОДСТВА </td>
+            <td>101.2</td>
+            <td>113.3</td>
+            <td>107.6</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ ПРОМЫШЛЕННЫХ  ТОВАРОВ </td>
+            <td>102.9</td>
+            <td>112.6</td>
+            <td>103.7</td>
+        </tr>
+
+
+        <tr>
+            <td>ОБЪЕМ ОТГРУЖЕННЫХ ТОВАРОВ СОБСТВЕННОГО ПРОИЗВОДСТВА, ВЫПОЛНЕННЫХ РАБОТ И УСЛУГ СОБСТВЕННЫМИ СИЛАМИ ОБРАБАТЫВАЮЩИХ ПРОИЗВОДСТВ </td>
+            <td>124.5908</td>
+            <td>94.3</td>
+            <td>74.4</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ПРОИЗВОДСТВА ПО ВИДУ ДЕЯТЕЛЬНОСТИ "ОБРАБАТЫВАЮЩИЕ ПРОИЗВОДСТВА" </td>
+            <td>102.5</td>
+            <td>114.2</td>
+            <td>107.3</td>
+        </tr>
+
+
+        <tr>
+            <td>ОБЪЕМ ОТГРУЖЕННЫХ ТОВАРОВ СОБСТВЕННОГО ПРОИЗВОДСТВА, ВЫПОЛНЕННЫХ РАБОТ И УСЛУГ СОБСТВЕННЫМИ СИЛАМИ ПО ДОБЫЧЕ ПОЛЕЗНЫХ ИСКОПАЕМЫХ </td>
+            <td>0.435</td>
+            <td>93.5</td>
+            <td>123</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ПРОИЗВОДСТВА ПО ВИДУ ДЕЯТЕЛЬНОСТИ "ДОБЫЧА ПОЛЕЗНЫХ ИСКОПАЕМЫХ" </td>
+            <td>84.3</td>
+            <td>0.39</td>
+            <td>0.28</td>
+        </tr>
+
+
+        <tr>
+            <td>ОБЪЕМ ОТГРУЖЕННЫХ ТОВАРОВ СОБСТВЕННОГО ПРОИЗВОДСТВА, ВЫПОЛНЕННЫХ РАБОТ И УСЛУГ СОБСТВЕННЫМИ СИЛАМИ ПО ПРОИЗВОДСТВУ И РАСПРЕДЕЛЕНИЮ ЭЛЕКТРОЭНЕРГИИ, ГАЗА И ВОДЫ </td>
+            <td>13.364</td>
+            <td>159.869</td>
+            <td>171.42100000000002</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ПРОИЗВОДСТВА ПО ВИДУ ДЕЯТЕЛЬНОСТИ "ПРОИЗВОДСТВО И РАСПРЕДЕЛЕНИЕ ЭЛЕКТРОЭНЕРГИИ, ГАЗА И ВОДЫ" </td>
+            <td>77.9</td>
+            <td>15.136000000000001</td>
+            <td>16.471</td>
+        </tr>
+
+
+        <tr>
+            <td>ОБЪЕМ РАБОТ, ВЫПОЛНЕННЫХ ПО ВИДУ ДЕЯТЕЛЬНОСТИ "СТРОИТЕЛЬСТВО" </td>
+            <td>23.9736</td>
+            <td>74.7542</td>
+            <td>78.31150000000001</td>
+        </tr>
+
+
+        <tr>
+            <td>ОБЪЕМ ПРОДУКЦИИ СЕЛЬСКОГО ХОЗЯЙСТВА </td>
+            <td>56.3928</td>
+            <td>24.8365</td>
+            <td>26.971</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ПРОИЗВОДСТВА ПРОДУКЦИИ СЕЛЬСКОГО ХОЗЯЙСТВА </td>
+            <td>115.1</td>
+            <td>217.6528</td>
+            <td>219.8793</td>
+        </tr>
+
+
+        <tr>
+            <td>ОБОРОТ РОЗНИЧНОЙ ТОРГОВЛИ </td>
+            <td>196.18720000000002</td>
+            <td>189.33620000000002</td>
+            <td>168.6131</td>
+        </tr>
+
+
+        <tr>
+            <td>ОБОРОТ ОРГАНИЗАЦИЙ ОПТОВОЙ ТОРГОВЛИ </td>
+            <td>170.4556</td>
+            <td>988.42</td>
+            <td>794.3</td>
+        </tr>
+
+
+        <tr>
+            <td>ВНЕШНЕТОРГОВЫЙ ОБОРОТ </td>
+            <td>1691.9</td>
+            <td>nan</td>
+            <td>nan</td>
+        </tr>
+
+
+        <tr>
+            <td>в том числе:</td>
+            <td>nan</td>
+            <td>352</td>
+            <td>212.9</td>
+        </tr>
+
+
+        <tr>
+            <td>экспорт товаров </td>
+            <td>357.12</td>
+            <td>636.4</td>
+            <td>581.4</td>
+        </tr>
+
+
+        <tr>
+            <td>импорт товаров </td>
+            <td>1334.8</td>
+            <td>60.98</td>
+            <td>67.1</td>
+        </tr>
+
+
+        <tr>
+            <td>КУРС ДОЛЛАРА США </td>
+            <td>38.4</td>
+            <td>60272.632</td>
+            <td>53297.53</td>
+        </tr>
+
+
+        <tr>
+            <td>ВНЕШНЕТОРГОВЫЙ ОБОРОТ </td>
+            <td>64969.728</td>
+            <td>nan</td>
+            <td>nan</td>
+        </tr>
+
+
+        <tr>
+            <td>в том числе:</td>
+            <td>nan</td>
+            <td>21464.96</td>
+            <td>14285.59</td>
+        </tr>
+
+
+        <tr>
+            <td>экспорт товаров </td>
+            <td>13713.408</td>
+            <td>38807.672</td>
+            <td>39011.94</td>
+        </tr>
+
+
+        <tr>
+            <td>импорт товаров </td>
+            <td>51256.32</td>
+            <td>61.7421</td>
+            <td>68.32</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ </td>
+            <td>66066.3</td>
+            <td>13.076</td>
+            <td>16.516000000000002</td>
+        </tr>
+
+
+        <tr>
+            <td>САЛЬДИРОВАННЫЙ ФИНАНСОВЫЙ РЕЗУЛЬТАТ </td>
+            <td>35.949000000000005</td>
+            <td>30.431</td>
+            <td>22.014</td>
+        </tr>
+
+
+        <tr>
+            <td>СУММА ПРИБЫЛИ ПО ПРИБЫЛЬНЫМ ОРГАНИЗАЦИЯМ </td>
+            <td>57.139</td>
+            <td>17.355</td>
+            <td>5.498</td>
+        </tr>
+
+
+        <tr>
+            <td>УДЕЛЬНЫЙ ВЕС ПРИБЫЛЬНЫХ ПРЕДПРИЯТИЙ  </td>
+            <td>67.2</td>
+            <td>65.1</td>
+            <td>67.7</td>
+        </tr>
+
+
+        <tr>
+            <td>КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ </td>
+            <td>93.923</td>
+            <td>34.9</td>
+            <td>32.3</td>
+        </tr>
+
+
+        <tr>
+            <td>из нее - просроченная задолженность </td>
+            <td>7.602</td>
+            <td>122.051</td>
+            <td>157.846</td>
+        </tr>
+
+
+        <tr>
+            <td>ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ </td>
+            <td>66.769</td>
+            <td>3.8480000000000003</td>
+            <td>2.249</td>
+        </tr>
+
+
+        <tr>
+            <td>из нее - просроченная задолженность </td>
+            <td>1.357</td>
+            <td>75.115</td>
+            <td>76.57300000000001</td>
+        </tr>
+
+
+        <tr>
+            <td>ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН </td>
+            <td>113.3</td>
+            <td>1.349</td>
+            <td>1.6620000000000001</td>
+        </tr>
+
+
+        <tr>
+            <td>РЕАЛЬНЫЕ  ДЕНЕЖНЫЕ ДОХОДЫ </td>
+            <td>99.3</td>
+            <td>113.2</td>
+            <td>106.1</td>
+        </tr>
+
+
+        <tr>
+            <td>ФОНД НАЧИСЛЕННОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ СПИСОЧНОГО СОСТАВА И ВНЕШНИХ СОВМЕСТИТЕЛЕЙ ОРГАНИЗАЦИЙ </td>
+            <td>-</td>
+            <td>97</td>
+            <td>93.6</td>
+        </tr>
+
+
+        <tr>
+            <td>ПРОСРОЧЕННАЯ ЗАДОЛЖЕННОСТЬ ПО ЗАРАБОТНОЙ ПЛАТЕ </td>
+            <td>56.82</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+
+        <tr>
+            <td>СРЕДНЕМЕСЯЧНАЯ НАЧИСЛЕННАЯ ЗАРАБОТНАЯ ПЛАТА ОДНОГО РАБОТНИКА :                                                                    - НОМИНАЛЬНАЯ </td>
+            <td>20911</td>
+            <td>21634.2</td>
+            <td>22819.4</td>
+        </tr>
+
+
+        <tr>
+            <td>- РЕАЛЬНАЯ  </td>
+            <td>100.9</td>
+            <td>88.6</td>
+            <td>97.9</td>
+        </tr>
+
+
+        <tr>
+            <td>ЧИСЛЕННОСТЬ ЭКОНОМИЧЕСКИ АКТИВНОГО НАСЕЛЕНИЯ </td>
+            <td>635.1</td>
+            <td>15.37</td>
+            <td>29.4</td>
+        </tr>
+
+
+        <tr>
+            <td>в том числе:</td>
+            <td>nan</td>
+            <td>624.4</td>
+            <td>624.6</td>
+        </tr>
+
+
+        <tr>
+            <td>ЧИСЛЕННОСТЬ ЗАНЯТЫХ В ЭКОНОМИКЕ </td>
+            <td>603.2</td>
+            <td>595.4</td>
+            <td>595.9</td>
+        </tr>
+
+
+        <tr>
+            <td>ЧИСЛЕННОСТЬ БЕЗРАБОТНЫХ  </td>
+            <td>31.9</td>
+            <td>29</td>
+            <td>28.7</td>
+        </tr>
+
+
+        <tr>
+            <td>КОЛИЧЕСТВО ЮРИДИЧЕСКИХ ЛИЦ, СВЕДЕНИЯ О КОТОРЫХ СОДЕРЖАТСЯ В ЕГРЮЛ </td>
+            <td>21975</td>
+            <td>1353219</td>
+            <td>1400824</td>
+        </tr>
+
+
+        <tr>
+            <td>КОЛИЧЕСТВО ИНДИВИДУАЛЬНЫХ ПРЕДПРИНИМАТЕЛЕЙ И КРЕСТЬЯНСКИХ </td>
+            <td>29601</td>
+            <td>21857</td>
+            <td>21268</td>
+        </tr>
+
+
+        <tr>
+            <td>из них - индивидуальных предпринимателей </td>
+            <td>28970</td>
+            <td>1331362</td>
+            <td>1379556</td>
+        </tr>
+
+
+        <tr>
+            <td>КОЛИЧЕСТВО ЗАРЕГИСТРИРОВАННЫХ МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ  </td>
+            <td>289</td>
+            <td>nan</td>
+            <td>nan</td>
+        </tr>
+
+
+        <tr>
+            <td>из них:</td>
+            <td>nan</td>
+            <td>30142</td>
+            <td>30900</td>
+        </tr>
+
+
+        <tr>
+            <td>КОЛИЧЕСТВО МУНИЦИПАЛЬНЫХ ОБРАЗОВАНИЙ, ПО КОТОРЫМ ПРИНЯТЫ БЮДЖЕТЫ </td>
+            <td>289</td>
+            <td>29409</td>
+            <td>30114</td>
+        </tr>
+
+
+        <tr>
+            <td>ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ НА 1 ЯНВАРЯ 2014 ГОДА </td>
+            <td>1233</td>
+            <td>39951</td>
+            <td>40261</td>
+        </tr>
+
+
+        <tr>
+            <td>УДЕЛЬНЫЙ ВЕС ГОРОДСКОГО НАСЕЛЕНИЯ В ОБЩЕЙ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ НА 1 ЯНВАРЯ 2014 ГОДА  </td>
+            <td>69.8</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+</table>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["2014", "2015", "2016"],
+            datasets: [{
+                label: "ВАЛОВОЙ (внутренний) РЕГИОНАЛЬНЫЙ  ПРОДУКТ ",
+                borderColor: 'rgb(255, 99, 132)',
+                data: [219, 243, 269],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+
+    var ctx1 = document.getElementById('myChart1').getContext('2d');
+    var chart1 = new Chart(ctx1, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["2014", "2015", "2016"],
+            datasets: [{
+                label: "ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА ВРП",
+                borderColor: 'rgb(0, 99, 132)',
+                data: [101, 103, 101],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+    function myFunction() {
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+</script>
+</body>
+</html>
